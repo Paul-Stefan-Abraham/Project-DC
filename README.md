@@ -1,10 +1,10 @@
 # Project-DC
 ## Team members
-- Abraham Paul-Stefan
-- Bujnca Iancu-Cristian 
+- Abraham Paul-Ștefan
+- Bujncă Iancu-Cristian 
 - Rodina Radu
-- Comsa Bogdan-Gabriel
-- Ciobota Luca-Petuel
+- Comșa Bogdan-Gabriel
+- Ciobotă Luca-Petuel
 
 ## Implemented Milestones
 ### Milestone 1
