@@ -9,4 +9,5 @@ public interface IBenchmark {
     void initialize(Object... params);
     void clean();
     void cancel();
+    void warmup();
 }

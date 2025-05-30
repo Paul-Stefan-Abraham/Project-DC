@@ -11,7 +11,7 @@ public class DummyBenchmark implements IBenchmark {
     @Override
     public void run() {
         for (int i = 0; i < runs; i++) {
-            double dummy = Math.sqrt(i); // Simulate workload
+            double dummy = Math.sqrt(i); // Simulate CPU load
         }
     }
 
@@ -21,8 +21,16 @@ public class DummyBenchmark implements IBenchmark {
     }
 
     @Override
+    public void warmup() {
+        // Run a small version of the benchmark to warm up JVM
+        for (int i = 0; i < 1000; i++) {
+            double dummy = Math.sqrt(i);
+        }
+    }
+
+    @Override
     public void clean() {
-        System.gc(); // Optional cleanup
+        System.gc();
     }
 
     @Override
