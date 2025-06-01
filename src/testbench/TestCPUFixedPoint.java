@@ -1,6 +1,6 @@
 package testbench;
 
-import benchmark.cpu.CPUFixedPoint;
+import bench.cpu.CPUFixedPoint;
 import logging.ConsoleLogger;
 import logging.ILogger;
 import logging.TimeUnit;

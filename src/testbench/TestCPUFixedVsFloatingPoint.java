@@ -1,8 +1,8 @@
 package testbench;
 
 import bench.IBenchmark;
-import benchmark.cpu.CPUFixedVsFloatingPoint;
-import benchmark.cpu.NumberRepresentation;
+import bench.cpu.CPUFixedVsFloatingPoint;
+import bench.cpu.NumberRepresentation;
 import logging.ConsoleLogger;
 import logging.ILogger;
 import logging.TimeUnit;

@@ -1,7 +1,7 @@
 package testbench;
 
 import bench.IBenchmark;
-import benchmark.cpu.CPURecursionLoopUnrolling;
+import bench.cpu.CPURecursionLoopUnrolling;
 import logging.ConsoleLogger;
 import logging.ILogger;
 import timing.ITimer;
