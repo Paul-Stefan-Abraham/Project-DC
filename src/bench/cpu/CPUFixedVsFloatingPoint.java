@@ -20,11 +20,11 @@ public class CPUFixedVsFloatingPoint implements IBenchmark {
 
         if (mode == NumberRepresentation.FLOATING) {
             for (int i = 1; i < size; i++) {
-                result += i / 256.0; // floating-point division
+                result += i / 256.0;
             }
         } else {
             for (int i = 1; i < size; i++) {
-                result += i >> 8; // fixed-point: i / 256 = i >> 8
+                result += i >> 8;
             }
         }
     }

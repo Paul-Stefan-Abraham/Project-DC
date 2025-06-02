@@ -16,25 +16,11 @@ public class FileWriter {
 	private static final int MAX_BUFFER_SIZE = 1024 * 1024 * 32; // MB
 	private static final long MIN_FILE_SIZE = 1024 * 1024; // MB
 	private static final long MAX_FILE_SIZE = 1024 * 1024 * 512; // MB
-	private Timer timer = new Timer();
-	private Random rand = new Random();
+	private final Timer timer = new Timer();
+	private final Random rand = new Random();
 	private double benchScore;
 
-	/**
-	 * Writes files on disk using a variable write buffer and fixed file size.
-	 * 
-	 * @param filePrefix
-	 *            - Path and file name
-	 * @param fileSuffix
-	 *            - file extension
-	 * @param minIndex
-	 *            - start buffer size index
-	 * @param maxIndex
-	 *            - end buffer size index
-	 * @param fileSize
-	 *            - size of the benchmark file to be written in the disk
-	 * @throws IOException
-	 */
+
 	public void streamWriteFixedFileSize(String filePrefix, String fileSuffix,
 			int minIndex, int maxIndex, long fileSize, boolean clean)
 			throws IOException {
@@ -54,25 +40,18 @@ public class FileWriter {
 		}
 
 		benchScore /= (maxIndex - minIndex + 1);
-		String partition = filePrefix.substring(0, filePrefix.indexOf(":\\"));
-		System.out.println("File write score on partition " + partition + ": "
-				+ String.format("%.2f", benchScore) + " MB/sec");
+
+		int index = filePrefix.indexOf(":\\");
+		if (index > 0) {
+			String partition = filePrefix.substring(0, index);
+			System.out.println("File write score on partition " + partition + ": " +
+					String.format("%.2f", benchScore) + " MB/sec");
+		} else {
+			System.out.println("File write score: " + String.format("%.2f", benchScore) + " MB/sec");
+		}
 	}
 
-	/**
-	 * Writes files on disk using a variable file size and fixed buffer size.
-	 * 
-	 * @param filePrefix
-	 *            - Path and file name
-	 * @param fileSuffix
-	 *            - file extension
-	 * @param minIndex
-	 *            - start file size index
-	 * @param maxIndex
-	 *            - end file size index
-	 * @param bufferSize
-	 *            - size of the benchmark file to be written in the disk
-	 */
+
 	public void streamWriteFixedBufferSize(String filePrefix, String fileSuffix,
 			int minIndex, int maxIndex, int bufferSize, boolean clean)
 			throws IOException {
@@ -91,15 +70,18 @@ public class FileWriter {
 		}
 
 		benchScore /= (maxIndex - minIndex + 1);
-		String partition = filePrefix.substring(0, filePrefix.indexOf(":\\"));
-		System.out.println("File write score on partition " + partition + ": "
-				+ String.format("%.2f", benchScore) + " MB/sec");
+
+		int index = filePrefix.indexOf(":\\");
+		if (index > 0) {
+			String partition = filePrefix.substring(0, index);
+			System.out.println("File write score on partition " + partition + ": " +
+					String.format("%.2f", benchScore) + " MB/sec");
+		} else {
+			System.out.println("File write score: " + String.format("%.2f", benchScore) + " MB/sec");
+		}
 	}
 
-	/**
-	 * Writes a file with random binary content on the disk, using a given file
-	 * path and buffer size.
-	 */
+
 	private void writeFile(String fileName, int bufferSize,
 			long fileSize, boolean clean) throws IOException {
 

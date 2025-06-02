@@ -30,9 +30,9 @@ public class Timer implements ITimer {
     @Override
     public void resume() {
         if (!isPaused) return;
-        long now = System.nanoTime();
-        // Update startTime to reflect resumed time window
-        startTime = now;
+
+        // update startTime on time window
+        startTime = System.nanoTime();
         isPaused = false;
     }
 

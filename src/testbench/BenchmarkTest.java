@@ -1,11 +1,8 @@
 package testbench;
 
-import bench.DemoBenchmark;
 import bench.DummyBenchmark;
 import bench.IBenchmark;
 import logging.ConsoleLogger;
-import logging.FileLogger;
-import logging.TimeUnit;
 import logging.ILogger;
 import timing.*;
 
@@ -15,7 +12,7 @@ public class BenchmarkTest {
         ILogger logger = new ConsoleLogger();
         ITimer timer = new Timer();
 
-        benchmark.initialize(100000); // Number of operations
+        benchmark.initialize(100000);
 
         timer.start();
         benchmark.run();

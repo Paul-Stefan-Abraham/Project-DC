@@ -1,10 +1,8 @@
 package testbench;
-import bench.cpu.HDDRandomAccess;
-import bench.DemoBenchmark;
+import bench.hdd.HDDRandomAccess;
 import bench.IBenchmark;
 import logging.ConsoleLogger;
 import logging.ILogger;
-import logging.TimeUnit;
 import timing.ITimer;
 import timing.Timer;
 

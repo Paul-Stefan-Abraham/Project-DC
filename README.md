@@ -2,9 +2,10 @@
 ## Team members
 - Abraham Paul-Ștefan
 - Bujncă Iancu-Cristian 
-- Rodina Radu
 - Comșa Bogdan-Gabriel
 - Ciobotă Luca-Petuel
+- Rodina Radu
+
 
 ## Implemented Milestones
 ### Milestone 1

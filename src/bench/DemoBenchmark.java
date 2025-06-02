@@ -4,12 +4,11 @@ import java.util.Random;
 
 public class DemoBenchmark implements IBenchmark {
     private int[] array;
-    private int n;
     private boolean running = true;
 
     @Override
     public void initialize(Object... params) {
-        n = (int) params[0];
+        int n = (int) params[0];
         array = new int[n];
         Random rand = new Random();
         for (int i = 0; i < n; i++)
@@ -38,8 +37,7 @@ public class DemoBenchmark implements IBenchmark {
     }
 
     @Override
-    public void warmup() {
-        // Warmup using a small array
+    public void warmup() {//warmup using a small array
         int[] warmArray = new int[100];
         Random rand = new Random();
         for (int i = 0; i < warmArray.length; i++)

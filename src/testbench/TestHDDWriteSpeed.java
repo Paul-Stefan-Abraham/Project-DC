@@ -26,11 +26,14 @@ public class TestHDDWriteSpeed {
         elapsed = timer.stop();
         log.write("Elapsed time:", elapsed, "ns");
         timer.start();
-        bench.run("fb", true);
-        elapsed = timer.stop();
-        log.write("Elapsed time:", elapsed, "ns");
+
         timer.start();
         bench.run("fb", false);
+        elapsed = timer.stop();
+        log.write("Elapsed time:", elapsed, "ns");
+
+        timer.start();
+        bench.run("fb", true);
         elapsed = timer.stop();
         log.write("Elapsed time:", elapsed, "ns");
 

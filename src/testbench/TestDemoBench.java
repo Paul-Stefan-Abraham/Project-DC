@@ -14,13 +14,12 @@ public class TestDemoBench {
         ILogger logger = new ConsoleLogger();
         ITimer timer = new Timer();
 
-        // Measure sleep-based benchmark (Task 2.1)
         int sleepMs = 100;
         bench.initialize(sleepMs);
 
         try {
             timer.start();
-            Thread.sleep(sleepMs); // Simulating simple sleep
+            Thread.sleep(sleepMs);
             long t = timer.stop();
 
             double offset = 100.0 * (t - sleepMs * 1_000_000) / (sleepMs * 1_000_000);
@@ -30,19 +29,18 @@ public class TestDemoBench {
             e.printStackTrace();
         }
 
-        // Actual benchmark run with pause/resume (Task 2.2)
-        bench.initialize(500); // Bubble sort on 500 elements
+        bench.initialize(500);
 
-        timer.start(); // <-- This is important before looping
+        timer.start();
 
         for (int i = 0; i < 5; i++) {
-            timer.resume();                // Resume timing
-            bench.run();                   // Run the benchmark
-            long t = timer.pause();        // Pause and get elapsed
+            timer.resume();
+            bench.run();
+            long t = timer.pause();
             logger.writeTime("Step " + (i + 1), t, TimeUnit.Milli);
         }
 
-        long total = timer.stop(); // Accumulate total time
+        long total = timer.stop();
         logger.writeTime("Total time", total, TimeUnit.Milli);
 
         logger.close();

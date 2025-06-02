@@ -82,7 +82,7 @@ public class CPUFixedPoint implements IBenchmark {
     }
 
     public int getOperationCount() {
-        // Estimate of all operations per iteration = 29, based on doc
+        //estimate of op from doc
         return 29;
     }
 }

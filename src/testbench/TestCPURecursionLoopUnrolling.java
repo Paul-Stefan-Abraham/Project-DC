@@ -15,20 +15,20 @@ public class TestCPURecursionLoopUnrolling {
 
         int size = 2_000_000;
 
-        // No unrolling
+        //no unrolling
         bench.initialize(size);
         timer.start();
         bench.run(false);
         long timeNoUnroll = timer.stop();
 
-        // With unrolling
+        //with unrolling
         for (int unroll = 1; unroll <= 15; unroll += 5) {
             bench.initialize(size);
             timer.start();
             bench.run(true, unroll);
             long timeUnroll = timer.stop();
 
-            // Example custom score: (calls or primes reached) / time * unroll factor
+            // ex score
             double score = (double) size / (timeUnroll / 1e6) * unroll;
             log.write("Custom Score (unroll " + unroll + "):", String.format("%.2f", score));
         }

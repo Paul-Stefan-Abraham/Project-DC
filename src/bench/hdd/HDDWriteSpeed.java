@@ -1,20 +1,18 @@
 package bench.hdd;
 
 import java.io.*;
+import java.util.Objects;
 
 import bench.IBenchmark;
 
 public class HDDWriteSpeed implements IBenchmark {
 	private boolean lastClean=false;
-	private String prefix = "E:\\forFiles\\000-bench\\write-";
-	private String suffix = ".dat";
-	private int minIndex = 0;
-	private int maxIndex = 8;
-	private long fileSize = 1024L * 1024 * 256; // 256 MB
-	private int bufferSize = 4 * 1024; // 4 KB
-	private double resultMBps = 0.0;
+	private final String prefix = ".\\write-";
+	private final String suffix = ".dat";
+	private final int minIndex = 0;
+	private final int maxIndex = 8;
 
-	@Override
+    @Override
 	public void initialize(Object... params) {
 	}
 
@@ -39,12 +37,14 @@ public class HDDWriteSpeed implements IBenchmark {
 
 
 		try {
-			if (option.equals("fs"))
-				writer.streamWriteFixedFileSize(prefix, suffix, minIndex,
-						maxIndex, fileSize, clean);
+            // 4 KB
+            int bufferSize = 4 * 1024;
+            // 256 MB
+            long fileSize = 1024L * 1024 * 256;
+            if (option.equals("fs"))
+				writer.streamWriteFixedFileSize(prefix, suffix, minIndex, maxIndex, fileSize, clean);
 			else if (option.equals("fb"))
-				writer.streamWriteFixedBufferSize(prefix, suffix, minIndex,
-						maxIndex, bufferSize, clean);
+				writer.streamWriteFixedBufferSize(prefix, suffix, minIndex, maxIndex, bufferSize, clean);
 			else
 				throw new IllegalArgumentException("Argument "
 						+ options[0].toString() + " is undefined");
@@ -57,12 +57,12 @@ public class HDDWriteSpeed implements IBenchmark {
 	public void clean() {
 		if(!lastClean) return;
 		for(int i=minIndex; i<=maxIndex; i++) {
-			java.io.File f=new java.io.File(prefix+ i + suffix);
+			File f=new File(prefix+ i + suffix);
 			if (f.exists()) f.delete();
 		}
 		
-		java.io.File folder= new java.io.File(prefix.substring(0, prefix.lastIndexOf(java.io.File.separator)));
-		if (folder.isDirectory() && folder.list().length == 0) {
+		File folder= new File(prefix.substring(0, prefix.lastIndexOf(File.separator)));
+		if (folder.isDirectory() && Objects.requireNonNull(folder.list()).length == 0) {
 			folder.delete();
 		}
 	}
@@ -71,6 +71,7 @@ public class HDDWriteSpeed implements IBenchmark {
 	}
 
 	public String getResult() {
-		  return String.format("%.2f MBps", resultMBps);
+        double resultMBps = 0.0;
+        return String.format("%.2f MBps", resultMBps);
 	}
 }

@@ -35,7 +35,7 @@ public class CPUDigitsOfPi implements IBenchmark {
 
     @Override
     public void clean() {
-        // Nothing to clean here
+        //nothing to clean here
     }
 
     @Override
@@ -43,14 +43,12 @@ public class CPUDigitsOfPi implements IBenchmark {
         running = false;
     }
 
-    private BigDecimal computePi(int digits) {
-        MathContext mc = new MathContext(digits + 5); // a bit extra for rounding
+    private void computePi(int digits) {
+        MathContext mc = new MathContext(digits + 5); //a bit extra for rounding
         BigDecimal pi = BigDecimal.ZERO;
-        BigDecimal sixteen = new BigDecimal(16);
-        BigDecimal one = BigDecimal.ONE;
+
 
         for (int k = 0; k < digits && running; k++) {
-            BigDecimal kBD = BigDecimal.valueOf(k);
             BigDecimal term = BigDecimal.ZERO;
 
             term = term.add(fraction(4, 8 * k + 1, mc));
@@ -62,7 +60,6 @@ public class CPUDigitsOfPi implements IBenchmark {
             pi = pi.add(term, mc);
         }
 
-        return pi.round(new MathContext(digits));
     }
 
     private BigDecimal fraction(int numerator, int denominator, MathContext mc) {
