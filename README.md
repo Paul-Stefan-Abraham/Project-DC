@@ -6,12 +6,12 @@
 - Ciobotă Luca-Petuel
 - Rodina Radu
 
+## How to run the benchmarks?
+  The project allows for testing all the benchmarks through the **BenchmarkIO.java** file. Just run it and choose which benchmark to verify from the available options.
+  Alternatively, you can test each one by directly running its corresponding test file, which is more tedious.
 
-## Implemented Milestones
-### Milestone 1
+## Additional files besides the main program
 - 1. Introduction to Benchmarks [View info about UserBenchmark and 3DMark](Assignment1.pdf)
-- 2. The benchmark framework (framework implemented in Java)
-- 3. Validation of the framework (validation implemented)
-
+- 12. Virtual Memory [View the plots for both scenarios](VM.Benchmarks.pdf)
 
 
