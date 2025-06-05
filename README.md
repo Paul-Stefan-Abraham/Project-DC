@@ -12,6 +12,6 @@
 
 ## Additional files besides the main program
 - 1. Introduction to Benchmarks [View info about UserBenchmark and 3DMark](Assignment1.pdf)
-- 12. Virtual Memory [View the plots for both scenarios](VM.Benchmarks.pdf)
+- 12. Virtual Memory [View the plots for both scenarios](VM_Benchmarks.pdf)
 
 
